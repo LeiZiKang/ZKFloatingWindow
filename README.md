@@ -43,6 +43,18 @@ struct FloatingWindowDemoApp: App {
 
 **You can download a [demo](https://github.com/LeiZiKang/FloatingWindowDemo) to see how it works**
 
+==**attention**==：
+
+the view in the FloatingWindow is in a different window, and you want to use `@Environment` to pass the view model, make sure to set the correct Environment path. Even if you've set the Environment in ContentView, it won't be automatically passed to the FloatingWindow.
+
+```swift
+  .floatingWindow(show: $showFloatingWindow) {
+                FloatView()
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .environment(\.viewModel, viewModel)
+            }
+```
+
 
 
 ---
